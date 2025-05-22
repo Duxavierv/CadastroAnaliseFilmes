@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Registro e Análise de Filmes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:href="@{/css/}+${css}+'.css'" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <center>
+        <a href="/">Pagina inicial</a>
+        <a href="/Filme/cadastro">Cadastrar Filmes</a>
+        <a href="/Filme/lista">Exibir todos os livros cadastrados</a>
+        <h1>Lista de Filmes</h1>
+    </center>
+       
+        
+        <table>
+            
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Sinopse</th>
+            <th>Genero</th>
+            <th>Ano de Lançamento</th>
+            <th>Ações</th>
+            
+            <tbody>
+                <tr th:each="Filme: ${Filmes}">
+                    <td th:text="${Filme.id}"></td>
+                    <td th:text="${Filme.titulo}"></td>
+                    <td th:text="${Filme.sinopse}"></td>
+                    <td th:text="${Filme.genero}"></td>
+                    <td th:text="${Filme.ano}"></td>
+                    <td>
+                        <a th:href="@{'/Filme/detalhes/'} + ${Filme.id}">+ Detalhes</a>
+                        <a th:href="@{'/Filme/alterar/'} + ${Filme.id}">Alterar</a>
+                        <a th:href="@{'/Filme/excluir/'} + ${Filme.id}">excluir</a>
+                    </td>                       
+                </tr>
+                
+                
+                
+            </tbody>
+            
+        </table>
+        
+        
+        
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Registro e Análise de Filmes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:href="@{/css/}+${css}+'.css'" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <center>
+        <a href="/">Pagina inicial</a>
+        <a href="/Filme/cadastro">Cadastrar Filmes</a>
+        <a href="/Filme/lista">Exibir todos os livros cadastrados</a>
+        <h1>Cadastro de Filmes</h1>
+    </center>
+        
+        <form method="post" th:action="@{/Filme/gravar}">
+            <p>ID: <input type="hidden" th:field="${Filme.id}"></p>
+            <p>Titulo: <input type="text" th:field="${Filme.titulo}"></p>
+            <p>Sinopse: <input type="text" th:field="${Filme.sinopse}"></p>
+            <p>Genero: <input type="text" th:field="${Filme.genero}"></p>
+            <p>Ano de Lançamento: <input type="number" th:field="${Filme.ano}"></p>
+            
+            <button type="submit">Salvar</button>
+        </form>
+    </body>
+</html>

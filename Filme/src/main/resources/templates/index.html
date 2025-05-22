@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Registro e Análise de Filmes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:href="@{/css/}+${css}+'.css'" rel="stylesheet" type="text/css" />
+        <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+    <center>
+        <a href="/">Pagina inicial</a>
+        <a href="/Filme/cadastro">Cadastrar Filmes</a>
+        <a href="/Filme/lista">Exibir todos os livros cadastrados</a>
+        <h1>Seja Bem-vindo ao Registro e Análise de Filmes</h1>
+        <p>O tema atual da pagina é: <b th:text="${css}"></b>.</p>
+        
+        <p>
+            <a href="/preferencias">Configurações da página</a>
+        </p>
+    </center>
+    </body>
+</html>

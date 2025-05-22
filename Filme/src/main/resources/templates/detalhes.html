@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Registro e Análise de Filmes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:href="@{/css/}+${css}+'.css'" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <center>
+        <a href="/">Pagina inicial</a>
+        <a href="/Filme/cadastro">Cadastrar Filmes</a>
+        <a href="/Filme/lista">Exibir todos os livros cadastrados</a>
+        <h1>Detalhes dos Filmes</h1>
+    </center>
+    
+    <p>ID: <span th:text="${filme.id}"></p>
+    <p>Titulo: <span th:text="${filme.titulo}"></p>
+    <p>Sinopse: <span th:text="${filme.sinopse}"></p>
+    <p>Gênero: <span th:text="${filme.genero}"></p>
+    <p>Ano de Lançamento: <span th:text="${filme.ano}"></p>
+    
+    <h2>Análises</h2>
+    <form th:action="@{'/analise/gravar/' + ${filme.id}}" method="post">
+        <p><label>Nova Análise:</label>
+        <input type="text" id="Analise" name="Analise" required>
+        </p>
+        <p>
+        <label>Nota:</label>
+        <input type="number" id="Nota" name="Nota" required>
+        </p>
+        <button type="submit">Adicionar</button>
+    </form>   
+    <ul>
+        <li th:each="analise : ${analises}">
+            Analise: <span th:text="${analise.Analise}"></span><br>
+            Nota: <span th:text="${analise.Nota}"></span>
+            Excluir: <a th:href="@{'/analise/excluir/'} + ${analise.id}">excluir</a>
+        </li>
+    </ul>
+    </body>
+</html>
