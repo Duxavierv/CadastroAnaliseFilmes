@@ -24,7 +24,7 @@ public class FilmeController {
     private AnaliseService analiseService;
     
     @GetMapping("/cadastro")
-    public String exibirFomulario(@CookieValue(name = "pref-estilo", defaultValue="claro") String tema, Model model){
+    public String exibirFormulario(@CookieValue(name = "pref-estilo", defaultValue="claro") String tema, Model model){
          model.addAttribute("css", tema);
         model.addAttribute("Filme", new Filme());
         return "FilmeCadastro";
